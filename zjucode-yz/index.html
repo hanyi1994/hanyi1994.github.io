@@ -1,0 +1,132 @@
+<html>
+  <head>
+	<title>浙江大学通行码</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- 	<link rel="stylesheet" href="css/main.css"> -->
+	<script src="https://imgcache.qq.com/qcloud/tcbjs/1.7.0/tcb.js"></script>
+    <script>
+		const app = tcb.init({
+		env: 'zjupasscode-11b3ba'  // 此处填入您的环境ID
+		});
+		app.auth().signInAnonymously().then(() => {
+		alert('登录云开发成功！')
+		});
+		var app = tcb.init({
+		env: 'zjupasscode-11b3ba' // 请替换为你的环境名
+		})
+		var auth = app.auth();
+		async function login(){
+        await auth.signInAnonymously();
+		// 匿名登录成功检测登录状态isAnonymous字段为true
+		const loginState = await auth.getLoginState();
+		console.log(loginState.isAnonymous); // true
+		}
+		login();
+			</script>
+	<style>
+	.demo{
+	    position:fixed;
+	    top: 0;
+	    left: 0;
+	    width:100%;
+	    height:100%;
+	    min-width: 1000px;
+	    z-index:-10;
+	    zoom: 1;
+	    background-color: #fff;
+	    background: url(img/passcodenoinfo_hy.png); /* 背景图片*/
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    -webkit-background-size: cover;
+	    -o-background-size: cover;
+	    background-position: center 0;
+	    }
+			</style>
+	<script>
+		setInterval("fun1(show_time1)",1);       
+		function fun1(timeID1){ 
+		var date = new Date();  //创建对象  
+		var y = date.getFullYear();     //获取年份  
+		var m =date.getMonth()+1;   //获取月份  返回0-11  
+		var d = date.getDate(); // 获取日  
+		var w = date.getDay();   //获取星期几  返回0-6   (0=星期天) 
+		var ww = ' 星期'+'日一二三四五六'.charAt(new Date().getDay()) ;//星期几
+		var h = date.getHours();  //时
+		var minute = date.getMinutes()  //分
+		var s = date.getSeconds(); //秒
+		var sss = date.getMilliseconds() ; //毫秒
+		if(m<10){
+		m = "0"+m;
+		}
+		if(d<10){
+		d = "0"+d;
+		}
+		if(h<10){
+		h = "0"+h;
+		}
+		if(minute<10){
+		minute = "0"+minute;
+		}
+		if(s<10){
+		s = "0"+s;
+		}
+		if(sss<10){
+		sss = "00"+sss;
+		}else if(sss<100){
+		sss = "0"+sss;
+		}
+		msg = "<span><b>"+m +"月"+d+"日"+"  "+h+":"+minute+":"+s+"</span></b>";
+		document.getElementById(timeID1.id).innerHTML = msg;
+		}
+			</script>
+    <script>
+	   setInterval("fun2(show_time2)",1);       
+	   function fun2(timeID2){ 
+	   var date = new Date();  //创建对象  
+	   var y = date.getFullYear();     //获取年份  
+	   var m =date.getMonth()+1;   //获取月份  返回0-11  
+	   var d = date.getDate(); // 获取日  
+	   if(m<10){
+	   m = "0"+m;
+	   }
+	   if(d<10){
+	   d = "0"+d;
+	   }
+	   msg = "<span><b>"+"有效期："+y +"-" +m +"-"+d+" - "+y +"-" +m +"-"+d+"</span></b>";
+	   document.getElementById(timeID2.id).innerHTML = msg;
+	   }
+	       </script>
+	<script>
+	   setInterval("fun3(show_time3)",1);       
+	   function fun3(timeID3){ 
+	   var date = new Date();  //创建对象  
+	   var y = date.getFullYear();     //获取年份  
+	   var m =date.getMonth()+1;   //获取月份  返回0-11  
+	   var d = date.getDate(); // 获取日  
+	   if(m<10){
+	   m = "0"+m;
+	   }
+	   if(d<10){
+	   d = "0"+d;
+	   }
+	   msg = "<span><b>"+"同步时间：" +y +"-" +m +"-"+d+" 07:29:48"+"</span></b>";
+	   document.getElementById(timeID3.id).innerHTML = msg;
+	   }
+	       </script>
+  </head>
+  <body>
+    <div class="demo"></div>     <!-- 显示图片为背景 -->
+	<div>   
+       <span style="font-size: 55px; position: fixed; width:100%;top: 460; text-align: center;font-family:microsoft yahei"document.getElementById('show_time1').innerHTML=new Date().toLocaleString()/span>
+	   <div id="show_time1" size="100"></div>
+	</div>
+	<div>
+	   <span style="font-size: 40px; position: fixed; width:100%;top: 1095; text-align: center;font-family: microsoft yahei;color:#b6b6b6;"document.getElementById('show_time2').innerHTML=new Date().toLocaleString()/span>
+	   <div id="show_time2" size="100"></div>
+	</div>
+	<div>
+	   <span style="font-size: 40px; position: fixed; width:100%; top: 1285; text-align: center;font-family: microsoft yahei; color:#b6b6b6;"document.getElementById('show_time3').innerHTML=new Date().toLocaleString()/span>
+	   <div id="show_time3" size="100"></div>
+	</div>
+  </body>
+</html>
